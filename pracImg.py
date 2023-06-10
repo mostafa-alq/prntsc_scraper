@@ -21,7 +21,6 @@ def getImages(wd, delay, maxImages):
   while len(imageUrls) + skips < maxImages:
     scrollDown(wd)
     thumbnails = wd.find_elements(By.CLASS_NAME, 'Q4LuWd')
-
     for img in thumbnails[len(imageUrls) + skips: maxImages]:
       try:
         img.click()
