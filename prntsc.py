@@ -5,13 +5,17 @@ import string
 import os
 import time
 
+#Asking user for a directory to download scraped images
+
+downloadPath = str(input('Enter a directory to download scraped images.'))
+
 #Headers to use
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"}
 
 #Function to generate random URLS - Will make either a 5 or 6 letter long URL comprised of random letters and numbers
 def ranStr3():
   baseUrl = 'https://prnt.sc/'
-  randomExtension = (''.join(random.choice(string.ascii_lowercase + string.ascii_upeprcase + string.digits) for _ in range(6)))
+  randomExtension = (''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(6)))
   return(f'{baseUrl}{randomExtension}')
 
 #Function to validate links - Done by checking the class of the image and also by seeing if it is the default "The screenshot was removed" image on the website
@@ -56,4 +60,4 @@ def main(downloadPath,maxImgs):
           print(f'fName: {fName}')
           count += 1
 
-main('C:/Zone/code/Webscraping/scrapedImages',200)
+main(downloadPath,200)
