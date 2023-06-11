@@ -1,1 +1,1 @@
-Simple webscraper designed to generate random URLS for the popular site 
+Webscraper designed to generate and validate random URLS, scraping the images and downloading them to a set directory. 
