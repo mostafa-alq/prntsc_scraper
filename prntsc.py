@@ -6,7 +6,6 @@ import os
 import time
 
 #Asking user for a directory to download scraped images
-
 downloadPath = str(input('Enter a directory to download scraped images.'))
 
 #Headers to use
@@ -52,7 +51,7 @@ def main(downloadPath,maxImgs):
         with open(downloadPath + '\\' + fName, 'wb') as j:
           j.write(imgResponse.content)
         #Due to the nature of the website, some links still contain "images", except they are usually under a kilobyte in size and cannot be opened by Windows. This will read to the location of the downloaded png and will delete it if it is under the required size. 
-        filePath = f'C:\Zone\code\Webscraping\scrapedImages\{fName}'
+        filePath = f'{downloadPath}{fName}'
         fileStats = os.stat(filePath)
         if fileStats.st_size < 1024:
           os.remove(filePath)
